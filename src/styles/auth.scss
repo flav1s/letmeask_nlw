@@ -17,7 +17,7 @@
     }
 
     strong {
-      font: 700 36px 'Poppins', sans-serif;
+      font: 700 36px "Poppins", sans-serif;
       line-height: 42px;
       margin-top: 16px;
     }
@@ -53,7 +53,7 @@
     h2 {
       font-size: 24px;
       margin: 64px 0 24px;
-      font-family: 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
     }
 
     form {
@@ -117,7 +117,7 @@
     align-items: center;
 
     &::before {
-      content: '';
+      content: "";
       flex: 1;
       height: 1px;
       background: #a8a8b3;
@@ -125,7 +125,7 @@
     }
 
     &::after {
-      content: '';
+      content: "";
       flex: 1;
       height: 1px;
       background: #a8a8b3;

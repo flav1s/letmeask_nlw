@@ -1,13 +1,15 @@
-import '../styles/auth.scss';
+/* eslint-disable react/button-has-type */
+import "../styles/auth.scss";
+import React from "react";
+import { useHistory } from "react-router";
 
-import { Button } from '../components/Button';
-import IllustrationImg from '../assets/images/illustration.svg';
-import googleIconImg from '../assets/images/google-icon.svg';
-import logoImg from '../assets/images/logo.svg';
-import { useAuth } from '../hooks/useAuth';
-import { useHistory } from 'react-router';
+import googleIconImg from "../assets/images/google-icon.svg";
+import IllustrationImg from "../assets/images/illustration.svg";
+import logoImg from "../assets/images/logo.svg";
+import { Button } from "../components/Button";
+import { useAuth } from "../hooks/useAuth";
 
-export function Home() {
+export function Home(): JSX.Element {
   const history = useHistory();
   const { user, signInWithGoogle } = useAuth();
 
@@ -16,7 +18,7 @@ export function Home() {
       await signInWithGoogle();
     }
 
-    history.push('/rooms/new');
+    history.push("/rooms/new");
   }
 
   return (

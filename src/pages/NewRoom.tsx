@@ -1,13 +1,14 @@
-import '../styles/auth.scss';
+import "../styles/auth.scss";
+import React from "react";
+import { Link } from "react-router-dom";
 
-import { Button } from '../components/Button';
-import IllustrationImg from '../assets/images/illustration.svg';
-import { Link } from 'react-router-dom';
-import logoImg from '../assets/images/logo.svg';
+import IllustrationImg from "../assets/images/illustration.svg";
+import logoImg from "../assets/images/logo.svg";
+import { Button } from "../components/Button";
 
 // import { useAuth } from '../hooks/useAuth';
 
-export function NewRoom() {
+export function NewRoom(): JSX.Element {
   // const { user } = useAuth();
   return (
     <div id="page-auth">
