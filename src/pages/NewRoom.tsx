@@ -1,4 +1,3 @@
-import "../styles/auth.scss";
 import React, { FormEvent, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
@@ -7,6 +6,8 @@ import logoImg from "../assets/images/logo.svg";
 import { Button } from "../components/Button";
 import { useAuth } from "../hooks/useAuth";
 import { database } from "../services/firebase";
+
+import "../styles/auth.scss";
 
 export function NewRoom(): JSX.Element {
   const { user } = useAuth();
