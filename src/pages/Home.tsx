@@ -38,6 +38,11 @@ export function Home(): JSX.Element {
       return;
     }
 
+    if (roomRef.val().endedAt) {
+      // eslint-disable-next-line no-alert
+      alert("Room already closed");
+    }
+
     history.push(`/rooms/${roomCode}`);
   }
 
