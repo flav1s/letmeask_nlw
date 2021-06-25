@@ -1,5 +1,7 @@
 import React, { ButtonHTMLAttributes } from "react";
 
+import cls from "classnames";
+
 import "../styles/button.scss";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -14,7 +16,7 @@ export function Button({
   return (
     <button
       type="button"
-      className={`button ${isOutlined} ? 'outlined' : ''`}
+      className={cls("button", { outlined: isOutlined })}
       {...props}
     />
   );

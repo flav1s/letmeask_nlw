@@ -1,4 +1,7 @@
+/* eslint-disable react/require-default-props */
 import React, { ReactNode } from "react";
+
+import cls from "classnames";
 
 import "../styles/question.scss";
 
@@ -8,17 +11,26 @@ type QuestionProps = {
     name: string;
     avatar: string;
   };
-  // eslint-disable-next-line react/require-default-props
   children?: ReactNode;
+  isAnswered?: boolean;
+  isHighlighted?: boolean;
 };
 
 export function Question({
   content,
   author,
+  isAnswered = false,
+  isHighlighted = false,
   children,
 }: QuestionProps): JSX.Element {
   return (
-    <div className="question">
+    <div
+      className={cls(
+        "question",
+        { answered: isAnswered },
+        { highlighted: isHighlighted && !isAnswered }
+      )}
+    >
       <p>{content}</p>
       <footer>
         <div className="user-info">

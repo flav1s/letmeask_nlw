@@ -1,6 +1,8 @@
 import React from "react";
 import { useHistory, useParams } from "react-router";
 
+import answerImg from "../assets/images/answer.svg";
+import checkImg from "../assets/images/check.svg";
 import deleteImg from "../assets/images/delete.svg";
 import logoImg from "../assets/images/logo.svg";
 import { Button } from "../components/Button";
@@ -35,6 +37,18 @@ export function AdminRoom(): JSX.Element {
     }
   }
 
+  async function handleCheckQuestionAsAnswered(questionId: string) {
+    await database
+      .ref(`rooms/${roomId}/questions/${questionId}`)
+      .update({ isAnswered: true });
+  }
+
+  async function handleHighlightQuestion(questionId: string) {
+    await database
+      .ref(`rooms/${roomId}/questions/${questionId}`)
+      .update({ isHighlighted: true });
+  }
+
   return (
     <div id="page-room">
       <header>
@@ -58,7 +72,29 @@ export function AdminRoom(): JSX.Element {
         <div className="question-list">
           {question.map((q) => {
             return (
-              <Question key={q.id} content={q.content} author={q.author}>
+              <Question
+                key={q.id}
+                content={q.content}
+                author={q.author}
+                isHighlighted={q.isHighlighted}
+                isAnswered={q.isAnswered}
+              >
+                {!q.isAnswered && (
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => handleCheckQuestionAsAnswered(q.id)}
+                    >
+                      <img src={checkImg} alt="Check question" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleHighlightQuestion(q.id)}
+                    >
+                      <img src={answerImg} alt="Answer question" />
+                    </button>
+                  </>
+                )}
                 <button
                   type="button"
                   onClick={() => handleDeleteQuestion(q.id)}
